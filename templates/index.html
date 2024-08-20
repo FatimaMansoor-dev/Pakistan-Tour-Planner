@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dekho Pakistan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <!-- header start -->
+    <header>
+        <div id="menu-bar" class="fas fa-bars"></div>
+        <a href="#" class="logo"><span>D</span>EKHO PAKISTAN</a>
+        <nav class="navbar">
+            <a href="#home"> Home </a>
+            <a href="#book"> Hotels </a>
+            <a href="#gallery"> Gallery </a>
+            <a href="#bot"> Plan Trip </a>
+            <a href="#contact"> Contact </a>
+            <!-- <a href="#book"> book </a> -->
+        </nav>
+        <div class="icons">
+            <!-- <i class="fa fa-microphone" id="microphone-btn"></i> -->
+            <i class="fas fa-search" id="search-btn"></i>
+        </div>
+        
+        <form action="" class="search-bar-container">
+            <input type="search" id="search-bar" placeholder="Ask me anything about Pakistan..">
+            <label for="search-bar" id="search-label" class="fas fa-search"></label>
+        </form>
+    </header>
+    <section class="home" id="home">
+        <div class="content">
+            <h3><br><br><br>Adventure is worthwhile</h3>
+            <p>Discover Pakistan with us, adventure awaits</p>
+            <!-- <a href="#" class="btn">Discover more</a> -->
+        </div>
+
+        <div class="controls">
+            <span class="vid-btn active" data-src="static/imgs/vid1.mp4"></span>
+            <span class="vid-btn" data-src="static/imgs/vid2.mp4"></span>
+            <span class="vid-btn" data-src="static/imgs/vid3.mp4"></span>
+        </div>
+
+        <div class="video-container">
+            <video src="static/imgs/vid1.mp4" id="video-slider" loop autoplay muted></video>
+        </div>
+    </section>
+
+    <!-- Hotels sections -->
+    <section class="book" id="book">
+        <div>
+        <h1 class="heading">
+            <span>S</span>
+            <span>E</span>
+            <span>A</span>
+            <span>R</span>
+            <span>C</span>
+            <span>H</span>
+            <span class="space"></span>
+            <span>N</span>
+            <span>O</span>
+            <span>W</span>
+        </h1>
+        </div>
+
+        <div class="row">
+            <div class="image">
+                <img src="static/imgs/hotel.png" alt="">
+            </div>
+
+            <div class="form-container">
+                <form id="bookingForm" action="/search">
+                    <div class="inputbox">
+                        <h3>Select city</h3>
+                        <select id="cityInput">
+                            <option value="quetta">quetta</option>
+                            <option value="islamabad">islamabad</option>
+                            <option value="abbottabad">abbottabad</option>
+                            <option value="peshawar">peshawar</option>
+                            <option value="murree">murree</option>
+                            <option value="lahore">lahore</option>
+                            <option value="multan">multan</option>
+                            <option value="rawalpindi">rawalpindi</option>
+                            <option value="bhurban">bhurban</option>
+                            <option value="bahawalpur">bahawalpur</option>
+                            <option value="faisalabad">faisalabad</option>
+                            <option value="karachi">karachi</option>
+                        </select>
+                    </div>
+
+                    <div class="drop">
+                        <h3>Hotel rating</h3>
+                        <select name="ratings" id="ratingsInput">
+                            <option value="">Select rating</option>
+                            <option value="3">3 star</option>
+                            <option value="4">4 star</option>
+                            <option value="5">5 star</option>
+                        </select>
+                    </div>
+                    <input type="submit" class="btn" value="Search Now">
+                </form>
+            </div>
+        </div>
+        <div id="loadingIndicator" style="display:none; font-size: 16px; color: orange; text-align: center;">Loading...</div>
+
+        <div id="result">
+            <span id="hoteldetails"></span>
+            <span id="rev"></span>
+        </div>
+        <!-- <span id="hotelimg"></span>
+        <span id="hotelurl"></span> -->
+    </section>
+
+    <!-- Message Box -->
+    <div id="msg-box" class="hidden">
+    <div id="msg-box-content">
+        <p id="msg-box-text"></p>
+        
+    </div>
+    <button id="close-msg-btn">Close</button>
+</div>
+
+<!-- gallery section -->
+
+    <section class="gallery" id="gallery">
+        <h1 class="heading">
+            <span>G</span>
+            <span>A</span>
+            <span>L</span>
+            <span>L</span>
+            <span>E</span>
+            <span>R</span>
+            <span>Y</span>
+        </h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="static/imgs/img1.jpg" alt="">
+                <div class="content">
+                    <h3>Kaghaan Valley</h3>
+                    <p>Best time to visit: June to September
+                        <br>
+                        Kaghan Valley, in the Khyber Pakhtunkhwa province, holds importance as a 
+                        picturesque destination with lush greenery, snow-capped peaks, and gushing 
+                        rivers. Saif-ul-Mulook Lake and Shogran stand out as key attractions, making 
+                        the valley a favorite among nature enthusiasts and adventure seekers.
+                    </p>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="static/imgs/hunza.jpeg" alt="">
+                <div class="content">
+                    <h3>Hunza Valley</h3>
+                    <p>Best time to visit: May to October
+                        <br>
+                        Hunza Valley, a jewel in the crown of Gilgit-Baltistan, is a destination of immense 
+                        cultural and natural importance. The valley is not merely a geographical wonder surrounded by snow-capped 
+                        peaks but a vibrant hub of history and tradition. The ancient Baltit Fort and the serene Attabad Lake contribute to the 
+                        valley’s allure, making it a must-visit for those seeking a blend of culture and breathtaking landscapes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="static/imgs/naraan.jpeg" alt="">
+                <div class="content">
+                    <h3>Naraan Valley</h3>
+                    <p>Best time to visit: May to September
+                        <br>
+                        One can spend the day time visiting the lakes and rivers, fishing, 
+                        rafting, and relaxing in small cafes or famous Naran Kaghan hotels next to 
+                        the flowing waters. At night time, the Bazaars are lit with halogen bulbs, and many people, visitors, and 
+                        locals are seen roaming in the streets bargaining for shawls and handmade bags while some enjoy hot espresso from the stalls.
+                    </p>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="static/imgs/saiful.jpg" alt="">
+                <div class="content">
+                    <h3>Saiful Malook Lake</h3>
+                    <p> Best time to visit: June to September
+                        <br>
+                        At an elevation of 3,224 meters, this enchanting lake is surrounded 
+                        by majestic mountains, offering a mesmerizing view. It is a well-known spot 
+                        for boating and camping.
+                    </p>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="static/imgs/ansu.jpeg" alt="">
+                <div class="content">
+                    <h3>Ansoo Lake</h3>
+                    <p>Best time to visit: July to August
+                        <br>
+                        At an elevation of 4,245 metres (13,927 ft) above sea level,
+                        Ansoo Lake stands as one of the highest lakes in the Himalayan
+                        Range. It lies in proximity to Malika Parbat, the tallest peak in the Kaghan Valley
+                    </p>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="static/imgs/gorakh.jpg" alt="">
+                <div class="content">
+                    <h3>Gorakh Hill Station</h3>
+                    <p>Best time to visit: February to March
+                        <br>
+                        Gorakh Hill Station is situated on one of the highest plateaus of Sindh, spread over 
+                        2,500 acres (10 km2) of land. The area is part of the Kirthar Mountain Range that makes
+                        the border between Sindh and Baluchistan provinces in Pakistan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="static/imgs/kalaash.jpg" alt="">
+                <div class="content">
+                    <h3>Kalash Valley</h3>
+                    <p>Best time to visit: June to August
+                        <br>
+                        Kalasha Valley is located at an elevation of over 6,500 
+                        feet above sea level, and is characterized by steep slopes, 
+                        narrow gorges, and rocky terrain. The area is home to a diverse range of 
+                        flora and fauna, including rare species such as the snow leopard and the Himalayan black bear.
+                    </p>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="static/imgs/ayubia.jpg" alt="">
+                <div class="content">
+                    <h3>Ayubia National Park</h3>
+                    <p>Best time to visit: May to August
+                        <br>
+                        Ayubia National Park, nestled in the Murree Hills, is of 
+                        significant importance for hikers and nature lovers. The park 
+                        is known for its lush forests, meadows, and charming hill stations of 
+                        Ayubia and Khanspur, offering a delightful retreat into nature.
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="static/imgs/dera.jpg" alt="">
+                <div class="content">
+                    <h3>Derawar Fort</h3>
+                    <p>Best time to visit: April to September
+                        <br>
+                        Located in the Cholistan Desert of Punjab, Derawar Fort stands as 
+                        a magnificent structure surrounded by golden sands. Its importance 
+                        lies in its impressive fortification, showcasing the historical and 
+                        architectural legacy of the region.
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="static/imgs/kund.jpg" alt="">
+                <div class="content">
+                    <h3>Kund Malir Beach</h3>
+                    <p>Best time to visit: October to February
+                        <br>
+                        n the Makran Coastal Highway, Kund Malir Beach stands 
+                        out as a pristine stretch of golden sand along the Arabian Sea. 
+                        Its importance lies in its untouched beauty and tranquility, making 
+                        it a hidden gem along Pakistan's coastline.
+                    </p>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="static/imgs/ratti.jpg" alt="">
+                <div class="content">
+                    <h3>Ratti Gali Lake</h3>
+                    <p>Best time to visit: June to August
+                        <br>
+                        Nestled in the Neelum Valley, Ratti Gali Lake is a serene alpine 
+                        lake surrounded by meadows and snow-capped peaks. The trek to this 
+                        hidden gem is rewarded with panoramic views of the Himalayas, adding 
+                        to the lake's importance as a trekker's paradise.
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="static/imgs/badsh.jpg" alt="">
+                <div class="content">
+                    <h3>Lahore Fort and Badshahi Mosque</h3>
+                    <p>Best time to visit: October to March
+                        <br>
+                        In the heart of Lahore, the Lahore Fort and Badshahi Mosque 
+                        are architectural wonders from the Mughal era. Their importance lies in 
+                        preserving the rich history of the region and showcasing the intricate design 
+                        and grandeur of Mughal architecture.
+                </div>
+            </div>
+
+        </div>
+    </section>
+<!-- trip planner -->
+<section class="bot" id="bot">
+    <h1 class="heading">
+        <span>P</span>
+        <span>L</span>
+        <span>A</span>
+        <span>N</span>
+        <span class="space"></span>
+        <span>A</span>
+        <span class="space"></span>
+        <span>T</span>
+        <span>R</span>
+        <span>I</span>
+        <span>P</span>
+    </h1>
+
+    <div class="row">
+        <div class="image">
+            <img src="static/imgs/travel.png" alt="">
+        </div>
+
+        <div class="form-container">
+            <form id="travelForm">
+                <div class="inputbox">
+                    <h3>No of People</h3>
+                    <input type="number" id="peopleInput">
+                </div>
+            
+                <div class="inputbox">
+                    <h3>Your Interests</h3>
+                    <div id="interestsInput" class="checkbox-container">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="hillstations" name="interests" value="hillstations">
+                            <label for="hillstations">Hill stations</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="hiking" name="interests" value="hiking">
+                            <label for="hiking">Hiking</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="culture" name="interests" value="culture">
+                            <label for="culture">Culture</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="rivers" name="interests" value="rivers">
+                            <label for="rivers">Rivers</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="iceActivity" name="interests" value="ice activity">
+                            <label for="iceActivity">Ice Activity</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="snowActivity" name="interests" value="snow activity">
+                            <label for="snowActivity">Snow Activity</label>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="inputbox">
+                    <h3>Your Budget</h3>
+                    <input type="number" id="budgetInput" placeholder="kindly type in pkr">
+                </div>
+            
+                <div class="inputbox">
+                    <h3>Number of Days</h3>
+                    <input type="number" id="daysInput" placeholder="number of days">
+                </div>
+            
+                <button type="button" class="btn" id="planNowBtn">Plan Now</button>
+            </form>
+        </div>
+    </div>
+    <div id="loadingIndicator2" style="display:none; font-size: 16px; color: orange; text-align: center;">Loading...</div>
+    
+    <div id="generatedTourPlan" class="hidden">
+        <!-- <h3>Generated Tour Plan</h3> -->
+        
+        <p id="tourPlanResponse">
+
+            <form id="emailForm">
+                <div class="input-group">
+                    <label for="email">Liked the plan? Receive it on email now!</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <button type="submit" id="btnemail" class="btn">Send Email</button>
+            </form>
+            <div class="marquee" id="marqueeMessage">
+                <div class="marquee-content">Kindly note that this itinerary is tentative, prices may vary a bit. Feel free to contact us for any queries.  Happy Travelling!</div>
+            </div>
+            
+    </div>
+    <div id="tourresp"></div>
+</section>
+
+
+<section class="contact" id="contact">
+    <h1 class="heading">
+        <span>C</span>
+        <span>O</span>
+        <span>N</span>
+        <span>T</span>
+        <span>A</span>
+        <span>C</span>
+        <span>T</span>
+    </h1>
+    <div class="container">
+        <form id="contactForm">
+            <h1>Contact Us Form</h1>
+            <input type="text" id="firstName" placeholder="First Name" required>
+            <input type="text" id="lastName" placeholder="Last Name" required>
+            <input type="email" id="emailid" placeholder="Email" required>
+            <input type="number" id="phone" placeholder="Phone Number" required>
+            <h4>Type Your Message Here...</h4>
+            <textarea id="message" required></textarea>
+            <button type="button" id="sendmail">Send</button>
+        </form>
+    </div>
+</section>
+
+
+    <script src="static/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1024 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --orange: #ffa500;
+}
+
+* {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all 0.2s linear;
+}
+
+*::selection {
+    background: var(--orange);
+    color: #fff;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 6rem;
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 200rem;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background: #333;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 9%;
+}
+
+header .logo {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+header .logo span {
+    color: var(--orange);
+}
+
+header .navbar a {
+    color: #fff;
+    font-size: 2rem;
+    margin: 0 0.8rem;
+}
+
+header .navbar a:hover {
+    color: var(--orange);
+}
+
+header .icons i {
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: #fff;
+    margin-right: 2rem;
+}
+
+header .icons i:hover {
+    color: var(--orange);
+}
+
+#voice-search-btn{
+    margin-right: 4rem;
+}
+
+header .search-bar-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 2rem;
+    background: #333;
+    border-top: 0.1rem solid rgba(255, 255, 255, 0.2);
+    display: none;
+    align-items: center;
+    z-index: 1001;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+header .search-bar-container.active {
+    display: flex;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+header .search-bar-container #search-bar {
+    width: 100%;
+    padding: 1rem;
+    text-transform: none;
+    color: #333;
+    font-size: 1.7rem;
+    border-radius: 0.5rem;
+}
+
+header .search-bar-container label {
+    color: #fff;
+    cursor: pointer;
+    font-size: 3rem;
+    margin-left: 1.5rem;
+}
+
+header .search-bar-container label:hover {
+    color: var(--orange);
+}
+
+#menu-bar {
+    color: #fff;
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 5rem 1.2rem;
+    display: none;
+}
+
+.home {
+    padding: 100px;
+    text-align: center;
+}
+
+.home h3 {
+    font-size: 3rem;
+    margin-top: 29rem;
+    color: #fff;
+}
+
+.home p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+.home .btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    color: #fff;
+    background: var(--orange);
+    border-radius: 0.5rem;
+    transition: background 0.3s;
+}
+
+.home .btn:hover {
+    background: #e69500;
+}
+
+.home .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.home .controls {
+    padding: 1rem;
+    border-radius: 5rem;
+    position: relative;
+    background: rgba(0,0,0,0,0.7);
+    top: 5rem;
+}
+.home .content{
+    margin-top: -13rem;
+}
+
+.home .controls .vid-btn {
+    height: 2rem;
+    width: 2rem;
+    display: inline-block;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    margin: 0 .5rem;
+}
+
+.home .controls .vid-btn.active {
+    background: var(--orange);
+}
+
+.heading {
+    text-align: center;
+    padding: 2.5rem 0;
+}
+
+.heading span {
+    font-size: 3.5rem;
+    background: rgba(255,165,0,0.2);
+    color: var(--orange);
+    border-radius: .5rem;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+}
+.review-space {
+    margin-bottom: 30rem; /* Adjust the margin-bottom as needed */
+}
+
+/* searched hotels */
+#result{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    /* padding: 35px; */
+    text-align: left;
+    
+}
+
+/* hotel img */
+.hotel-img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover; /* This will ensure the image covers the area without distortion */
+}
+
+/* name and url and img */
+.book #hoteldetails {
+    font-size: 22px;
+    padding: 15px;
+    /* border-radius: 5px; */
+    position: relative;
+    text-align: center;
+    float: left; /* Add float property */
+    color: var(--orange);
+}
+
+.book #rev {
+    margin-top: 8rem;
+    font-size: 16px;
+    border-radius: 5px; 
+    position: relative;
+    border: var(--orange);
+    border-width: 2rem;
+    color: #222;
+} 
+
+
+.heading .space {
+    display: inline-block;
+    /* width: 1rem; Adjust the width to control the space */
+    /* height: 3.5rem; Match the font-size of the spans */ 
+}
+
+.heading .space {
+    background: none;
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: 2rem;
+}
+
+.dropbtn {
+    background-color: #333;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.book h1{
+    margin-top: 4rem;
+}
+
+.book .row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items at the top */
+    text-align: center;
+    padding: 2rem;
+    align-items: center;
+}
+
+.book .row .image {
+    flex: 1; /* Take up 50% of the space */
+}
+
+.book .row .image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.form-container {
+    flex: 1; /* Take up 50% of the space */
+    margin-left: 2rem; /* Add some spacing between the image and the form */
+}
+
+.book .row form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
+    border-radius: .5rem;
+    width: 50%;
+    flex: 1 1 40rem;
+}
+
+.book .row form .inputbox {
+    /* margin-bottom: 2rem;
+    text-align: left; */
+    padding: 0.5rem 0;
+}
+
+.book .row form .inputbox input {
+    border: 1px solid #222; /* Add a solid border with a color */
+    padding: 0.5rem; /* Add padding to improve visual appearance */
+    width: 100%; /* Ensure the input field takes up the entire width */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+    text-transform: none;
+}
+
+
+.book .row form .inputbox h3 {
+    margin-bottom: 0.5rem;
+    text-align: left;
+
+}
+
+.book .row form .drop h3 {
+    margin-bottom: 0.5rem;
+    text-align: left;
+    font-weight: bold;
+}
+
+.book .row form .drop select{
+    border: 1px solid #222; /* Add a solid border with a color */
+    padding: 0.5rem; /* Add padding to improve visual appearance */
+    width: 100%; /* Ensure the input field takes up the entire width */
+    box-sizing: border-box; 
+    background: #fff;
+    color: #222;
+}
+
+.book .row .btn{
+    color: #fff;
+    background: var(--orange);
+    padding: .5rem;
+    margin-top: 2rem;
+}
+
+.bold-orange {
+    color: orange;
+    font-weight: bold;
+}
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 70px; /* Adjust as needed */
+}
+
+.marquee-content {
+    display: inline-block;
+    white-space: nowrap;
+    position: absolute;
+    will-change: transform;
+    width: 300%; /* Ensure content is large enough */
+    animation: marquee 20s linear infinite; /* Default speed */
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Adjust speed for larger screens */
+@media (min-width: 768px) {
+    .marquee-content {
+        animation: marquee 50s linear infinite; /* Slower speed for larger screens */
+        font-size: 15px;
+    }
+    
+}
+
+/* Adjust speed for smaller screens */
+@media (max-width: 767px) {
+    .marquee-content {
+        animation: marquee 30s linear infinite; /* Speed for smaller screens */
+        font-size: 11px;
+    }
+}
+
+
+
+#emailForm {
+    max-width: 500px; /* Limit the width of the form */
+    margin: 20px auto; /* Center the form horizontally */
+    padding: 20px; /* Add padding inside the form */
+    border: 1px solid #ddd; /* Add a border around the form */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Style for input groups within the specific form */
+#emailForm .input-group {
+    margin-bottom: 15px; /* Space between input fields */
+}
+
+#emailForm .input-group label {
+    display: block; /* Make the label block-level to take full width */
+    margin-bottom: 5px; /* Space below the label */
+    font-size: 16px; /* Adjust font size for labels */
+    font-weight: bold; /* Make the label text bold */
+}
+
+#emailForm .input-group input {
+    width: 100%; /* Make input fields take full width */
+    padding: 10px; /* Add padding inside the input field */
+    border: 1px solid #ccc; /* Light border color */
+    border-radius: 4px; /* Slightly rounded corners */
+    box-sizing: border-box; /* Include padding and border in the element’s total width and height */
+    font-size: 16px; /* Adjust font size for input text */
+}
+
+/* Style for the submit button within the specific form */
+#emailForm .btn {
+    display: inline-block;
+    padding: 10px 20px; /* Add padding inside the button */
+    font-size: 16px; /* Adjust font size for button text */
+    font-weight: bold; /* Make button text bold */
+    color: #fff; /* White text color */
+    background-color: #007bff; /* Blue background color */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Slightly rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color on hover */
+}
+
+#emailForm .btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.formatted-text {
+    font-size: 15px; /* Default font size for the formatted text */
+}
+/* msgbox for gemini response */
+#msg-box {
+    /* position: fixed; */
+    top: 10rem;
+    left: 10rem;
+    width: auto;
+    height: auto;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#msg-box-content p{
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+#close-msg-btn {
+    padding: 10px 20px;
+    border: none;
+    background: #007BFF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5rem;
+}
+
+button:hover {
+    background: #0a3a6d;
+}
+
+
+/* galleryy */
+.gallery .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.gallery .box-container .box{
+    overflow: hidden;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.1);
+    border: 1rem solid #fff;
+    border-radius: .5rem;
+    flex: 1 1 30rem;
+    height: 25rem;
+    position: relative;
+}
+.gallery .box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the aspect ratio is maintained and the image fits within the given dimensions */
+}
+
+.gallery .box-container .box .content{
+    position: absolute;
+    top: -100%; left: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, .7);
+    padding: 2rem;
+    padding-top: 5rem;
+}
+
+.gallery .box-container .box:hover .content{
+    top: 0;
+}
+
+.gallery .box-container .box .content h3{
+    font-size: 2.5rem;
+    color: var(--orange);
+}
+
+.gallery .box-container .box .content p{
+    font-size: 1rem;
+    color: #eee;
+    padding: 0.5rem 0;
+}
+
+.btn{
+    color: #fff;
+    background: var(--orange);
+}
+
+
+
+/* Travel planner  */
+
+.bot .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.bot .row .image {
+    flex: 1; /* Take up 50% of the space */
+}
+
+.bot .row .image img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 4rem;
+}
+
+.bot .form-container {
+    flex: 1; /* Take up 50% of the space */
+    margin-left: 2rem; /* Add some spacing between the image and the form */
+}
+
+.bot .row form h3 {
+    margin-bottom: 0.5rem;
+    text-align: left;
+    font-weight: bold;
+}
+.bot .row form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
+    border-radius: .5rem;
+    width: 100%; /* Ensure the form takes up the entire width of the flex container */
+}
+
+.bot .row form .inputbox, .bot .row form .drop {
+    padding: 0.5rem 0;
+}
+
+.bot .row form .inputbox input, .bot .row form .drop select {
+    border: 1px solid #222; /* Add a solid border with a color */
+    padding: 0.5rem; /* Add padding to improve visual appearance */
+    width: 100%; /* Ensure the input field takes up the entire width */
+    box-sizing: border-box; 
+    background: #fff;
+    color: #222;
+}
+
+.bot .row .btn {
+    color: #fff;
+    background: var(--orange);
+    padding: .5rem;
+    margin-top: 2rem;
+}
+
+/* .inputbox {
+    margin-bottom: 20px;
+} */
+
+.checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkbox-item {
+    /* flex: 1 1 %; Adjust the width of each item */
+    margin-bottom: 10px;
+
+}
+
+/* .checkbox-item input {
+    margin-right: 10px;
+} */
+
+#tourPlanResponse{
+    font-size: 20px;
+}
+
+.orange-text {
+    color: orange;
+    display: block;  /* Ensures that the text appears on a new line */
+    margin: 5px 0;   /* Optional: Adds spacing around the orange text */
+}
+.tour-response {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px 20px;
+    border-radius: 10px;
+}
+
+.tour-response h2 {
+    color: #333;
+}
+
+.tour-response p {
+    line-height: 1.5;
+}
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 991px) {
+    header {
+        padding: 2rem;
+    }
+
+    section {
+        padding: 2rem;
+    }
+    .book .heading{
+        margin-top: 9rem;
+    }
+    .home p{
+        padding: -4rem;
+    }
+    .home h3{
+        margin-left: -3rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    #menu-bar {
+        display: initial;
+    }
+
+
+    .navbar {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background: #333;
+        border-top: 0.1rem solid rgba(255, 255, 255, 0.2);
+        padding: 1rem 2rem;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    .navbar.active {
+        display: block;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .navbar a {
+        display: block;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        background: #222;
+    }
+
+    .book .heading{
+        top: 7rem;
+    }
+
+
+    .form-container {
+        margin-left: 0; /* Remove the left margin */
+        margin-top: 2rem; /* Add some top margin for spacing */
+    }
+
+    .book .row form {
+        width: 80%; /* Adjust the form width to fit the smaller screen */
+    }
+
+    .bot .row {
+        flex-direction: column;
+    }
+
+    .bot .row .image, .row .form-container {
+        padding: 10px;
+    }
+    .book {
+        position: relative; /* Ensure proper positioning */
+        padding-top: 1rem; /* Add some padding to ensure space for the heading */
+    }
+
+    .book .heading {
+        margin-top: 15rem; /* Add margin to push the heading down */
+        text-align: center; /* Center the heading */
+    }
+
+    .book .video-container {
+        /* Adjust the video container if needed */
+        position: static; /* Ensure video does not overlap other content */
+        width: 100%; /* Full width for mobile */
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+
+    #hoteldetails{
+        font-size: 10px;
+        margin-left: 0rem;
+    }
+
+    .heading span{
+        font-size: 2.5rem;
+    }
+    .book .heading{
+        top: 7rem;
+    }
+    
+    .hotel-img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover; /* This will ensure the image covers the area without distortion */
+    }
+
+    .book #rev {
+        margin-left: 2rem;
+        margin-top: 10rem;
+        font-size: 10px;
+        text-align: justify;
+        position: relative;
+        color: #222;
+    }
+    
+    .review-space {
+        margin-bottom: 15rem; /* Adjust the margin-bottom as needed */
+    }
+
+    .book #hoteldetails {
+        font-size: 18px;
+        padding: 15px;
+        /* border-radius: 5px; */
+        position: relative;
+        text-align: center;
+        float: left; /* Add float property */
+        color: var(--orange);
+    }
+    
+
+    #msg-box {
+        /* position: fixed; */
+        margin-top: 22rem;
+        left: 0;
+        width: 50rem;
+        height: 20rem;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #msg-box-content {
+        background: white;
+        /* padding: 20px; */
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        font-size: 16px;
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    button {
+        /* padding: 10px 20px; */
+        /* margin-top: 15rem; */
+        border: none;
+        background: #007BFF;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    margin-top: -8rem;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.container form {
+    width: 100%;
+    max-width: 670px;
+    height: auto; /* Adjust height to accommodate the new input field */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
+    border-radius: 15px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    background: url('../imgs/images.jpg');
+    background-size: cover;
+    padding: 2rem;
+}
+
+.container form h1 {
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.container form input,
+.container form textarea {
+    width: 100%;
+    padding: 1rem;
+    outline: none;
+    border: none;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    background: none;
+    color: #fff;
+    border-bottom: 2px solid #fff; /* White underline */
+}
+
+.container form textarea {
+    background: rgba(255, 255, 255, 0.1); /* Transparent background */
+    resize: none; /* Disable resizing */
+}
+
+.container form input::placeholder,
+.container form textarea::placeholder {
+    color: #ffffff;
+}
+
+.container form .form-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.container form .form-group input {
+    flex: 1 1 100%; /* Full width on small screens */
+}
+
+.container form button {
+    margin-top: 2rem; /* Separate the button from the textarea */
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    background: var(--orange);
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+
+.container form button:hover {
+    background: #e69500;
+}
+
+@media (min-width: 768px) {
+    .container form .form-group input {
+        flex: 1 1 45%; /* Half width on larger screens */
+    }
+    .book .heading{
+        margin-top: 13rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .container form {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .container form h1 {
+        width: 100%;
+    }
+
+    .container form input {
+     
+        width: calc(50% - 1rem); /* Adjust width for two-column layout */
+    }
+    .book .heading{
+        margin-top: 13rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .container form {
+        width: 100%;
+        max-width: 100%; /* Use the full width of the viewport */
+        padding: 1rem;
+    }
+
+    .container form input {
+        font-size: 1.2rem; /* Adjust font size for better readability on small screens */
+    }
+    .container {
+        margin-top: -12rem;
+    }
+    .book .heading{
+        margin-top: 13rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container form input {
+        font-size: 1rem; /* Further adjust font size for very small screens */
+    }
+
+    .container form h1 {
+        font-size: 1.5rem; /* Adjust heading size for small screens */
+    }
+
+    .container .heading {
+        margin-top: -12rem;
+    }
+
+    
+    .book .heading{
+        margin-top: 13rem;
+    }
+
+
+}
+
